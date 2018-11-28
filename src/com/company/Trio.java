@@ -20,8 +20,8 @@ public class Trio implements MenuItem{
         double price2 = salad.getPrice();
         double price3 = drink.getPrice();
 
-        double a;
-        double b;
+        double a = 0;
+        double b = 0;
 
         if (price1 > price2) {
             if (price1 > price3) {
@@ -41,7 +41,23 @@ public class Trio implements MenuItem{
 
         }
         else if ((price2 > price1) && (price2 > price3)){
-            if (price2 > price3)
+            a = price2;
+            if (price3 > price1) {
+               b = price3;
+            }
+            else {
+                b = price1;
+            }
+        }
+        else if ((price3 > price1) && (price3 > price2)) {
+            a = price3;
+            if (price1 > price2){
+                b = price1;
+            }
+            else
+            {
+                b = price2;
+            }
         }
         return a + b;
     }
